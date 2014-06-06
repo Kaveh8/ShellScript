@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# 	Copyright 2014 Kaveh Shahhosseini <Kaveh228@gmail.com>
+#	 Copyright 2014 Kaveh Shahhosseini <Kaveh228@gmail.com>
         
 #        This program is free software; you can redistribute it and/or modify
 #        it under the terms of the GNU General Public License as published by
@@ -79,13 +79,23 @@ size_video()
 {
   	echo "not implemented yet"
 }
+help_func()
+{
+	echo "Usage: $0 -[ls] file..."
+	echo "Options: -h : to see this help and exit"
+	echo "         -l : show duration of media file"
+	echo "         -s : show size of media file"
+	echo -e "\nAuthor: Kaveh Shahhosseini github.com/Kaveh8" 
+}
 if [ "$1" = -l ]; then
 	files=$@
 	length_video;
 elif [ "$1" = -s ]; then
 	files=$@
 	size_video;
+elif [ "$1" = -h ]; then
+	help_func;
 else
-	echo "Usage: $0 -[ls] file..."
-	exit 1;
+	echo "invalid argument..."
+	help_func;
 fi
